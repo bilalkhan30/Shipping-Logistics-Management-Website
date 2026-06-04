@@ -42,5 +42,5 @@ Azimar is a full-stack logistics and supply chain management web application. Th
 
 1. **Clone the repository:**
 ```bash
-   git clone [https://github.com/YOUR_GITHUB_USERNAME/Azimar-Logistics.git](https://github.com/YOUR_GITHUB_USERNAME/Azimar-Logistics.git)
-   cd SHIPPING-LOGISTICS-WEB-PROJECT
+   git clone https://github.com/bilalkhan30/Shipping-Logistics-Management-Website.git
+   cd Shipping-Logistics-Management-Website
