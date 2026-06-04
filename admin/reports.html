@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports - LogisticsPro</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/reports.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="#" id="logout-button">Logout</a>
+      </nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar" id="admin-sidebar">
+        <nav class="sidebar-nav">
+          <h3>Admin Menu</h3>
+          <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="shipments.html">Manage Shipments</a></li>
+            <li><a href="manage-users.html">Manage Users</a></li>
+            <li>
+              <a href="transporter-activity.html">Transporter Activity</a>
+            </li>
+            <li class="active"><a href="reports.html">Reports</a></li>
+            <li><a href="../admin/profile.html">Profile</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main-content">
+        <h2 id="welcome-heading">Generate Reports</h2>
+
+        <div class="dashboard-content report-generator">
+          <h3 class="content-title">Shipment Summary Report</h3>
+          <p>Select a date range to generate a report on shipment activity.</p>
+
+          <form id="report-form" class="report-form">
+            <div class="input-group">
+              <label for="start-date">Start Date</label>
+              <input type="date" id="start-date" name="start-date" required />
+            </div>
+            <div class="input-group">
+              <label for="end-date">End Date</label>
+              <input type="date" id="end-date" name="end-date" required />
+            </div>
+            <button type="submit" class="btn-create-new">Run Report</button>
+          </form>
+          <p id="report-message" class="message-holder"></p>
+        </div>
+
+        <div id="report-results" class="dashboard-content report-results">
+          <h3 class="content-title">
+            Report: <span id="report-date-range"></span>
+          </h3>
+
+          <div class="stat-card-container">
+            <div class="stat-card card-blue">
+              <div class="card-info">
+                <h4>Total Shipments</h4>
+                <p id="report-stat-total">0</p>
+              </div>
+            </div>
+            <div class="stat-card card-green">
+              <div class="card-info">
+                <h4>Delivered</h4>
+                <p id="report-stat-delivered">0</p>
+              </div>
+            </div>
+            <div class="stat-card card-orange">
+              <div class="card-info">
+                <h4>In Transit</h4>
+                <p id="report-stat-transit">0</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="content-title">Matching Shipments</h3>
+          <table class="activity-table">
+            <thead>
+              <tr>
+                <th>Tracking #</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Date Shipped</th>
+              </tr>
+            </thead>
+            <tbody id="report-table-body"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/admin.js"></script>
+    <script src="../js/reports.js"></script>
+  </body>
+</html>

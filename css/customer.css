@@ -1,0 +1,116 @@
+/*
+  =================================================
+  This file styles all non-admin dashboard pages.
+  =================================================
+*/
+
+/* We REMOVED the bad .main-nav rules. 
+  The main style.css file already handles the 
+  right-alignment (margin-left: auto).
+*/
+
+/* 2. Form styles (for create-shipment.html)
+*/
+#create-shipment-form .login-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#create-shipment-form select,
+#create-shipment-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+  background-color: #fff;
+}
+
+/*
+  =================================================
+  NEW FORM STYLES (for create-shipment.html)
+  =================================================
+*/
+
+/* Style the fieldset groups */
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Style the fieldset titles */
+legend {
+  font-weight: 700;
+  color: var(--primary-color);
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Container for side-by-side fields */
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Make input groups in a row share space */
+.form-row .input-group {
+  flex: 1;
+}
+
+/* Style the new <textarea> for Item Description */
+#create-shipment-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+}
+/*
+  =================================================
+  FIX: Center-Align Content for non-admin users
+  =================================================
+*/
+
+/*
+  This new rule targets the WHITE BOX (or boxes) on the page.
+  We give it a max-width and center it (margin: 0 auto).
+  This fixes the "empty" look on the dashboard and other pages.
+*/
+.dashboard-content {
+  max-width: 960px; /* A more standard content width */
+  margin: 0 auto; /* This centers the box */
+}
+
+/*
+  ==================================
+  NEW: Create Shipment Form Animation
+  ==================================
+*/
+
+/* Target the fieldsets only on this form */
+#create-shipment-form fieldset {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger the fieldsets and button */
+#create-shipment-form fieldset:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+#create-shipment-form fieldset:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+#create-shipment-form fieldset:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+#create-shipment-form .login-button {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+}

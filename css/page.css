@@ -1,0 +1,212 @@
+/*
+  This file styles the content for simple static pages
+  like "About" and "Contact".
+*/
+
+/* This is the main container for the page content */
+.page-container {
+  flex-grow: 1; /* Fills space between header and footer */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* This centers the box */
+  padding: 3rem 1rem;
+  background-color: var(--light-grey);
+}
+
+/* This is the white box holding the content */
+.page-content-box {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Main page headings */
+.page-content-box h2 {
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+/* Sub-headings (like "Our Mission") */
+.page-content-box h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Standard paragraph text */
+.page-content-box p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* A general-purpose button for these pages */
+.page-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.page-button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Specific style for the <textarea> in the contact form */
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  transition: border-color 0.3s ease;
+  line-height: 1.6;
+}
+
+.contact-form textarea:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* ================================== */
+/* STYLES FOR CONTACT INFO BLOCK      */
+/* ================================== */
+
+.contact-info-block {
+  background-color: var(--light-grey);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+}
+.contact-info-block p {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.contact-info-block p:last-child {
+  margin-bottom: 0;
+}
+.contact-info-block a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+.contact-info-block a:hover {
+  text-decoration: underline;
+}
+
+/*
+  =================================================
+  Home Page Transparency Overrides
+  =================================================
+*/
+
+/* 1. Make the grey page container transparent */
+.home-page .page-container {
+  background-color: transparent;
+}
+
+/* 2. Make the content box completely transparent */
+.home-page .page-content-box {
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* 3. Make the text WHITE and add a strong shadow */
+.home-page .page-content-box h2 {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+.home-page .page-content-box p {
+  color: #f1f1f1;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* 4. Make links inside the box white */
+.home-page .page-content-box p a {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/*
+  =================================================
+  Page Content Animations (FOR ABOUT/CONTACT)
+  =================================================
+*/
+
+/* 1. Define the fade-up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* THIS IS THE FIX:
+  Apply animation to all children *except* on the home page.
+  This stops the conflict with the typing animation.
+*/
+body:not(.home-page) .page-content-box > * {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger animations *except* on the home page */
+body:not(.home-page) .page-content-box h2 {
+  animation-delay: 0.1s;
+}
+body:not(.home-page) .page-content-box p:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+body:not(.home-page) .page-content-box p:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+body:not(.home-page) .page-content-box h3:nth-of-type(1) {
+  animation-delay: 0.4s;
+}
+body:not(.home-page) .page-content-box p:nth-of-type(3) {
+  animation-delay: 0.5s;
+}
+body:not(.home-page) .page-content-box .contact-info-block {
+  animation-delay: 0.5s;
+}
+body:not(.home-page) .page-content-box h3:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+body:not(.home-page) .page-content-box .contact-form {
+  animation-delay: 0.7s;
+}
+body:not(.home-page) .page-content-box .page-button {
+  animation-delay: 0.8s;
+}

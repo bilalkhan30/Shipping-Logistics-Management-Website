@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - LogisticsPro</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/customer.css" />
+    <link rel="stylesheet" href="../css/my-profile.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav"></nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <main class="dashboard-main-content">
+        <h2 id="welcome-heading">My Profile</h2>
+
+        <div class="dashboard-content profile-info" id="profile-info-box">
+          <div class="profile-header">
+            <h3 class="content-title">Your Information</h3>
+            <div>
+              <button class="btn-edit" id="edit-profile-btn">
+                Edit Profile
+              </button>
+              <button class="btn-save" id="save-profile-btn">
+                Save Changes
+              </button>
+              <button class="btn-cancel" id="cancel-edit-btn">Cancel</button>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <p>
+              <strong>Name:</strong>
+              <span id="profile-name-text"></span>
+              <input
+                type="text"
+                id="profile-name-input"
+                class="profile-input"
+              />
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <span id="profile-email-text"></span>
+              <input
+                type="email"
+                id="profile-email-input"
+                class="profile-input"
+              />
+            </p>
+            <p>
+              <strong>Phone:</strong>
+              <span id="profile-phone-text"></span>
+              <input
+                type="tel"
+                id="profile-phone-input"
+                class="profile-input"
+              />
+            </p>
+            <p>
+              <strong>Address:</strong>
+              <span id="profile-address-text"></span>
+              <textarea
+                id="profile-address-input"
+                class="profile-input"
+                rows="3"
+              ></textarea>
+            </p>
+            <p>
+              <strong>Role:</strong>
+              <span id="profile-role-text"></span>
+            </p>
+            <p id="profile-message" class="message-holder"></p>
+          </div>
+        </div>
+
+        <div class="dashboard-content">
+          <h3 class="content-title">Change Password</h3>
+          <form id="change-password-form">
+            <div class="input-group">
+              <label for="current-password">Current Password</label>
+              <input
+                type="password"
+                id="current-password"
+                name="current-password"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="new-password">New Password</label>
+              <input
+                type="password"
+                id="new-password"
+                name="new-password"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="confirm-password">Confirm New Password</label>
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                required
+              />
+            </div>
+            <p id="password-message" class="message-holder"></p>
+            <button type="submit" class="login-button">Update Password</button>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/my-profile.js"></script>
+  </body>
+</html>

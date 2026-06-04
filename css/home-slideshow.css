@@ -1,0 +1,129 @@
+/*
+  =================================================
+  Background Slideshow Styles
+  =================================================
+*/
+
+.bg-slideshow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: imageFade 24s linear infinite;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+
+.bg-slide:nth-child(1) {
+  background-image: url("../assets/bg-1.jpg");
+}
+.bg-slide:nth-child(2) {
+  background-image: url("../assets/bg-2.jpg");
+  animation-delay: 6s;
+}
+.bg-slide:nth-child(3) {
+  background-image: url("../assets/bg-3.jpg");
+  animation-delay: 12s;
+}
+.bg-slide:nth-child(4) {
+  background-image: url("../assets/bg-4.jpg");
+  animation-delay: 18s;
+}
+
+@keyframes imageFade {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  29% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*
+  =================================================
+  NEW: HOME PAGE CONTENT ANIMATIONS
+  =================================================
+*/
+
+/* 1. Typing Animation for H2 */
+.typing-animation {
+  width: 35ch; /* Character length of the heading */
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid white; /* The "caret" */
+  animation: typing 2.5s steps(35, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Keyframes for the typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 35ch;
+  }
+}
+
+/* Keyframes for the blinking caret */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+/* 2. Fade-Up Animation for Paragraphs/Button */
+.fade-up {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Keyframes for fade-up (from dashboard.css) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. Stagger the fade-up animations */
+.page-content-box p.fade-up:nth-of-type(1) {
+  animation-delay: 2.7s; /* Start after typing */
+}
+.page-content-box p.fade-up:nth-of-type(2) {
+  animation-delay: 2.9s; /* Start slightly after */
+}
+.page-content-box .page-button.fade-up {
+  animation-delay: 3.1s; /* Start last */
+}

@@ -1,0 +1,89 @@
+/*
+  =================================================
+  This file contains styles ONLY for the
+  "Reports" page.
+  =================================================
+*/
+
+/* Style the form container */
+.report-generator {
+  margin-bottom: 2rem;
+}
+
+/* Style the date picker form */
+.report-form {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 1.5rem;
+  align-items: flex-end; /* Aligns items to the bottom */
+  margin-top: 1.5rem;
+}
+
+/* --- THIS IS THE FIX --- */
+
+/* 1. Make the input groups grow */
+.report-form .input-group {
+  flex: 1; /* Make the input groups grow to fill space */
+  min-width: 200px; /* Prevent them from getting too squished */
+  margin-bottom: 0; /* Remove margin, as 'gap' handles it */
+}
+
+/* 2. Set an explicit, matching height on the date input */
+.report-form input[type="date"] {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+  box-sizing: border-box; /* Ensures padding is included in height */
+  height: 45px; /* Explicit height */
+}
+
+/* 3. Make the button match that height */
+.report-form .btn-create-new {
+  padding: 0 1.2rem; /* Keep side padding */
+  height: 45px; /* Match the input height */
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+/* --- END OF FIX --- */
+
+/* The report results area */
+.report-results {
+  display: none; /* Hidden by default */
+}
+
+.report-results .stat-card {
+  min-width: 200px;
+}
+.report-results .card-info p {
+  font-size: 2rem;
+}
+
+/* For error/success messages */
+.message-holder {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+/*
+  ==================================
+  NEW: Page Load Animation
+  ==================================
+*/
+.report-generator,
+.report-results {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger the animation */
+.report-generator {
+  animation-delay: 0.1s;
+}
+.report-results {
+  animation-delay: 0.2s;
+}

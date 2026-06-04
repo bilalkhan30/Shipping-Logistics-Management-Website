@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Shipment - LogisticsPro</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/customer.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="#" id="logout-button">Logout</a>
+      </nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <main class="dashboard-main-content">
+        <h2 id="welcome-heading">Create a New Shipment</h2>
+
+        <div class="dashboard-content">
+          <h3 class="content-title">Shipment Details</h3>
+          <form id="create-shipment-form">
+            <fieldset>
+              <legend>Your Information</legend>
+              <input type="hidden" id="user-role" name="user-role" />
+
+              <div class="input-group">
+                <label for="customer-name">Your Name (or Company)</label>
+                <input
+                  type="text"
+                  id="customer-name"
+                  name="customer-name"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="phone">Your Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Shipment Details</legend>
+              <div class="input-group">
+                <label for="pickup-address">Pickup Address</label>
+                <input
+                  type="text"
+                  id="pickup-address"
+                  name="pickup-address"
+                  placeholder="e.g., 456 Warehouse St, Supplier City"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="destination">Destination Address</label>
+                <input
+                  type="text"
+                  id="destination"
+                  name="destination"
+                  placeholder="e.g., 123 Main St, New York, NY"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="supplier">Supplier/Origin</label>
+                <input
+                  type="text"
+                  id="supplier"
+                  name="supplier"
+                  placeholder="Enter supplier name"
+                  required
+                />
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Item Details</legend>
+              <div class="input-group">
+                <label for="item-description">Item Description</label>
+                <textarea
+                  id="item-description"
+                  name="item-description"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="input-group">
+                <label for="shipment-type">Shipment Type</label>
+                <select id="shipment-type" name="shipment-type" required>
+                  <option value="">Select a type...</option>
+                  <option value="Standard">Standard</option>
+                  <option value="Express">Express</option>
+                  <option value="Refrigerated">Refrigerated</option>
+                  <option value="Fragile">Fragile</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="quantity">Quantity</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    min="1"
+                    value="1"
+                    required
+                  />
+                </div>
+
+                <div class="input-group">
+                  <label for="weight">Total Weight (kg)</label>
+                  <input
+                    type="number"
+                    id="weight"
+                    name="weight"
+                    min="0"
+                    step="0.1"
+                    placeholder="e.g., 10.5"
+                    required
+                  />
+                </div>
+              </div>
+            </fieldset>
+
+            <p id="form-message" class="message-holder"></p>
+            <button type="submit" class="login-button">
+              Submit Shipment Request
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/create-shipment.js"></script>
+  </body>
+</html>

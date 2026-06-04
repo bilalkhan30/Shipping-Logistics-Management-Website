@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Shipments - LogisticsPro</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/shipments.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="#" id="logout-button">Logout</a>
+      </nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar" id="admin-sidebar">
+        <nav class="sidebar-nav">
+          <h3>Admin Menu</h3>
+          <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li class="active">
+              <a href="shipments.html">Manage Shipments</a>
+            </li>
+            <li><a href="manage-users.html">Manage Users</a></li>
+            <li>
+              <a href="transporter-activity.html">Transporter Activity</a>
+            </li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="profile.html">Profile</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main-content">
+        <div class="page-header">
+          <h2 id="welcome-heading">Manage Shipments</h2>
+        </div>
+
+        <div class="dashboard-content">
+          <h3 class="content-title">All Shipments</h3>
+
+          <table class="activity-table">
+            <thead>
+              <tr>
+                <th>Tracking #</th>
+                <th>Requester</th>
+                <th>Origin (Supplier)</th>
+                <th>Destination</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TRK-12345</td>
+                <td>David Lee (Customer)</td>
+                <td>Supplier A</td>
+                <td>Los Angeles, CA</td>
+                <td><span class="status status-transit">In Transit</span></td>
+                <td>
+                  <button class="btn-view">View</button
+                  ><button class="btn-cancel">Cancel</button>
+                </td>
+              </tr>
+              <tr>
+                <td>TRK-12346</td>
+                <td>Supplier B (Supplier)</td>
+                <td>Supplier B</td>
+                <td>LV-426</td>
+                <td><span class="status status-delivered">Delivered</span></td>
+                <td>
+                  <button class="btn-view">View</button
+                  ><button class="btn-cancel">Cancel</button>
+                </td>
+              </tr>
+              <tr>
+                <td>TRK-12347</td>
+                <td>Sarah Connor (Customer)</td>
+                <td>Tyrell Corp</td>
+                <td>New York, NY</td>
+                <td><span class="status status-pending">Pending</span></td>
+                <td>
+                  <button class="btn-view">View</button
+                  ><button class="btn-cancel">Cancel</button>
+                </td>
+              </tr>
+              <tr>
+                <td>TRK-12348</td>
+                <td>Supplier A (Supplier)</td>
+                <td>Supplier A</td>
+                <td>Miranda</td>
+                <td><span class="status status-delivered">Delivered</span></td>
+                <td>
+                  <button class="btn-view">View</button
+                  ><button class="btn-cancel">Cancel</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <div id="shipment-modal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="modal-close" id="close-modal-btn">&times;</span>
+        <h2>Shipment Details</h2>
+
+        <div id="shipment-details-content" class="shipment-details">
+          <div class="detail-group">
+            <h4>Requester Info</h4>
+            <p>
+              <strong>Name:</strong> <span id="detail-requester-name"></span>
+            </p>
+            <p>
+              <strong>Phone:</strong> <span id="detail-requester-phone"></span>
+            </p>
+            <p>
+              <strong>Role:</strong> <span id="detail-requester-role"></span>
+            </p>
+          </div>
+          <div class="detail-group">
+            <h4>Shipment Info</h4>
+            <p><strong>Origin:</strong> <span id="detail-origin"></span></p>
+            <p>
+              <strong>Pickup Address:</strong> <span id="detail-pickup"></span>
+            </p>
+            <p>
+              <strong>Destination:</strong>
+              <span id="detail-destination"></span>
+            </p>
+            <p>
+              <strong>Requested On:</strong>
+              <span id="detail-created-at"></span>
+            </p>
+          </div>
+          <div class="detail-group">
+            <h4>Item Info</h4>
+            <p><strong>Item:</strong> <span id="detail-item"></span></p>
+            <p><strong>Type:</strong> <span id="detail-type"></span></p>
+            <p><strong>Quantity:</strong> <span id="detail-quantity"></span></p>
+            <p><strong>Weight:</strong> <span id="detail-weight"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/admin.js"></script>
+    <script src="../js/manage-shipments.js"></script>
+  </body>
+</html>

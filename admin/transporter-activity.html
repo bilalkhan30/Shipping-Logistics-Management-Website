@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transporter Activity - LogisticsPro</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/shipments.css" />
+    <!-- Re-use for status colors -->
+    <link rel="stylesheet" href="../css/manage-users.css" />
+    <!-- Re-use for modal and buttons -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="#" id="logout-button">Logout</a>
+      </nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar" id="admin-sidebar">
+        <nav class="sidebar-nav">
+          <h3>Admin Menu</h3>
+          <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li>
+              <a href="shipments.html">Manage Shipments</a>
+            </li>
+            <li><a href="manage-users.html">Manage Users</a></li>
+            <!-- This is the new link, marked active -->
+            <li class="active">
+              <a href="transporter-activity.html">Transporter Activity</a>
+            </li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="profile.html">Profile</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main-content">
+        <div class="page-header">
+          <h2 id="welcome-heading">Transporter Activity</h2>
+        </div>
+
+        <div class="dashboard-content">
+          <h3 class="content-title">All Active and Completed Jobs</h3>
+
+          <table class="activity-table">
+            <thead>
+              <tr>
+                <th>Tracking #</th>
+                <th>Transporter Name</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="activity-table-body">
+              <tr>
+                <td colspan="6">Loading activity...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <!-- ... -->
+    <div id="user-details-modal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="modal-close" id="close-modal-btn">&times;</span>
+        <h2>User Details</h2>
+
+        <!-- vvv REPLACE THIS WHOLE DIV vvv -->
+        <div id="user-details-content" class="shipment-details">
+          <!-- Group 1: User's Profile -->
+          <div class="detail-group">
+            <h4>Transporter Profile</h4>
+            <p><strong>Name:</strong> <span id="detail-user-name"></span></p>
+            <p><strong>Email:</strong> <span id="detail-user-email"></span></p>
+            <p><strong>Phone:</strong> <span id="detail-user-phone"></span></p>
+            <p>
+              <strong>Status:</strong> <span id="detail-user-status"></span>
+            </p>
+          </div>
+
+          <!-- Group 2: Info for the specific job you clicked on -->
+          <!-- ... -->
+          <div class="detail-group">
+            <h4>Current Job Info</h4>
+            <p>
+              <strong>Tracking #:</strong>
+              <span id="detail-job-tracking"></span>
+            </p>
+            <p><strong>Status:</strong> <span id="detail-job-status"></span></p>
+            <p>
+              <strong>Job Accepted:</strong>
+              <span id="detail-job-accepted"></span>
+            </p>
+
+            <!-- vvv ADD THIS NEW LINE vvv -->
+            <p>
+              <strong>Job Delivered:</strong>
+              <span id="detail-job-delivered"></span>
+            </p>
+            <!-- ^^^ END OF NEW LINE ^^^ -->
+          </div>
+          <!-- ... -->
+
+          <!-- Group 3: A list of ALL jobs for this transporter -->
+          <div class="detail-group full-width-group">
+            <h4>All Assigned Jobs (<span id="detail-job-count">0</span>)</h4>
+            <div id="detail-job-list-container">
+              <!-- JS will build a mini-table here -->
+            </div>
+          </div>
+        </div>
+        <!-- ^^^ END REPLACEMENT ^^^ -->
+      </div>
+    </div>
+    <!-- ... -->
+
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/admin.js"></script>
+    <!-- For sidebar/logout -->
+    <script src="../js/transporter-activity.js"></script>
+    <!-- Our new JS file -->
+  </body>
+</html>

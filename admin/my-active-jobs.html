@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Active Jobs - LogisticsPro</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/customer.css" />
+    <link rel="stylesheet" href="../css/shipments.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav"></nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <main class="dashboard-main-content">
+        <h2 id="welcome-heading">My Active Jobs</h2>
+
+        <div class="dashboard-content">
+          <h3 class="content-title">Update Shipment Status</h3>
+
+          <table class="activity-table">
+            <thead>
+              <tr>
+                <th>Tracking #</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Current Status</th>
+                <th>Update Action</th>
+              </tr>
+            </thead>
+            <tbody id="active-jobs-table-body">
+              <tr>
+                <td colspan="5">Loading active jobs...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/my-active-jobs.js"></script>
+  </body>
+</html>

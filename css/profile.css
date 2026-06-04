@@ -1,0 +1,56 @@
+/*
+  =================================================
+  This file contains styles ONLY for the
+  "Profile" page.
+  =================================================
+*/
+
+/* Add space between the two content boxes */
+.profile-info {
+  margin-bottom: 2rem;
+}
+
+/* Style the p tags holding the user info */
+.info-block p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.info-block p:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Style the "Name:", "Email:" labels */
+.info-block p strong {
+  font-weight: 700;
+  color: var(--text-color);
+  display: inline-block;
+  width: 150px; /* Aligns the text values */
+}
+
+/* We re-use .message-holder from other files */
+/* We re-use .login-button from style.css */
+
+/*
+  ==================================
+  NEW: Page Load Animation
+  ==================================
+*/
+/* We target the two main boxes on the page */
+.dashboard-main-content > .dashboard-content {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger the animation */
+.dashboard-main-content > .dashboard-content:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+.dashboard-main-content > .dashboard-content:nth-of-type(2) {
+  animation-delay: 0.2s;
+}

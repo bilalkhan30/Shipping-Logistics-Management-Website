@@ -1,0 +1,243 @@
+/*
+  =================================================
+  This file contains styles ONLY for the
+  "Manage Shipments" page.
+  =================================================
+*/
+
+/* This styles the container holding the title and button */
+.page-header {
+  display: flex;
+  justify-content: space-between; /* Pushes title and button apart */
+  align-items: center;
+
+  /* We reuse the same h2 styles from dashboard.css */
+  /* so we only need to style the button */
+}
+
+/* Style for the "Create New Shipment" button */
+.btn-create-new {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-create-new:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================== */
+/* NEW TABLE STYLES                   */
+/* ================================== */
+
+/* Style for the blue "View" button */
+.btn-view {
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-view:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* Styles for the colored "Status" labels */
+.status {
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px; /* Pill shape */
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.status-transit {
+  background-color: #ffe8b3; /* Light orange */
+  color: #8a6100;
+}
+
+.status-delivered {
+  background-color: #c3e6cb; /* Light green */
+  color: #155724;
+}
+
+.status-pending {
+  background-color: #f5c6cb; /* Light red */
+  color: #721c24;
+}
+
+/*
+  =================================================
+  MODAL STYLES (for Shipment Details)
+  (Copied from manage-users.css for consistency)
+  =================================================
+*/
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 2.5rem;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 600px; /* A bit wider for details */
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.modal-close {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* *** NEW: Specific styles for the details view *** */
+.shipment-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.detail-group {
+  flex: 1; /* Each group will share space */
+  min-width: 200px; /* Won't get too small */
+  background-color: var(--light-grey);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.detail-group h4 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.detail-group p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-group p strong {
+  color: #333;
+  margin-right: 5px;
+}
+
+/*
+  ==================================
+  NEW: CANCEL BUTTON STYLE
+  ==================================
+*/
+.btn-cancel {
+  border: none;
+  background-color: #dc3545; /* Red */
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  margin-left: 0.5rem; /* Space from the "View" button */
+}
+
+.btn-cancel:hover {
+  background-color: #c82333; /* Darker red */
+  transform: translateY(-1px);
+}
+
+/*
+  ==================================
+  FIX: ACTION COLUMN WIDTH
+  ==================================
+*/
+
+/* Targets the last column (Action) in the table */
+.activity-table th:last-child,
+.activity-table td:last-child {
+  /* Give it enough space for both buttons */
+  min-width: 180px;
+  /* Ensures buttons stay on one line */
+  white-space: nowrap;
+}
+
+/*
+  ==================================
+  TRANSPORTER ACTION STYLES
+  ==================================
+*/
+
+.action-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-cell .status-select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+}
+
+/* We re-use the blue .btn-view style */
+.action-cell .btn-update {
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.action-cell .btn-update:hover {
+  background-color: var(--primary-color);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logistics Dashboard</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="#" id="logout-button">Logout</a>
+      </nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar" id="admin-sidebar">
+        <nav class="sidebar-nav">
+          <h3>Admin Menu</h3>
+          <ul>
+            <li class="active"><a href="dashboard.html">Dashboard</a></li>
+
+            <li><a href="shipments.html">Manage Shipments</a></li>
+
+            <li><a href="../admin/manage-users.html">Manage Users</a></li>
+            <li>
+              <a href="transporter-activity.html">Transporter Activity</a>
+            </li>
+            <li><a href="../admin/reports.html">Reports</a></li>
+            <li><a href="../admin/profile.html">Profile</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main-content">
+        <h2 id="welcome-heading"></h2>
+
+        <div class="dashboard-content">
+          <p>Loading dashboard...</p>
+        </div>
+      </main>
+    </div>
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

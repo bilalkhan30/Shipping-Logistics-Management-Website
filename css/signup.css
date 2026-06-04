@@ -1,0 +1,101 @@
+/*
+  This file styles the signup-container, signup-box, and the new <select> element.
+  It loads *after* style.css, so all the variables (like --primary-color)
+  and global styles are available.
+*/
+
+.signup-container {
+  flex-grow: 1; /* Ensures it fills the space between header and footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem; /* Add more padding for this taller form */
+}
+
+.signup-box {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 450px; /* Slightly wider than the login box */
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.signup-box h2 {
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Style the new <select> dropdown to match the <input> fields */
+.input-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif; /* Ensures consistent font */
+  color: var(--text-color);
+  background-color: #fff;
+  -webkit-appearance: none; /* Removes default OS styling */
+  -moz-appearance: none;
+  appearance: none;
+  /* Add a custom dropdown arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23002a5c" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 24px;
+}
+
+.input-group select:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* The main "Create Account" button */
+.signup-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.signup-button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* The message holder for errors or success */
+.message-holder {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+/* The link back to the login page */
+.login-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.login-link a {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

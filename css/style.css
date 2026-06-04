@@ -1,0 +1,389 @@
+/* Basic Reset & Body Styles */
+:root {
+  --primary-color: #0056b3; /* Dark Blue */
+  --secondary-color: #007bff; /* Bright Blue */
+  --accent-color: var(--secondary-color); /* Button color is now blue */
+  --text-color: #002a5c; /* Dark blue text */
+  --light-grey: #f8f9fa; /* Still used for some borders */
+  --border-color: #ced4da;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #ffffff; /* Pure white background */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.main-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+}
+
+.main-header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-header .logo img {
+  height: 40px; /* Adjust logo size as needed */
+  width: auto;
+  border-radius: 50%; /* Optional: subtle rounding */
+}
+
+.main-header .logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Login Container */
+.login-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-box {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid #e0e0e0; /* Light border for the box */
+}
+
+.login-box h2 {
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Form Styles */
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* * =================================================================
+ * FIX #1 IS HERE:
+ * I added [type="email"] and [type="tel"] to this list
+ * so they get the same width, padding, and border as the others.
+ * =================================================================
+*/
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="tel"],
+.input-group input[type="password"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* * =================================================================
+ * FIX #2 IS HERE:
+ * I also added them to the :focus style, so they
+ * get the blue glow when you click on them.
+ * =================================================================
+*/
+.input-group input[type="text"]:focus,
+.input-group input[type="email"]:focus,
+.input-group input[type="tel"]:focus,
+.input-group input[type="password"]:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle focus glow */
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--accent-color); /* Now uses the blue accent color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1.5rem; /* Added space above */
+}
+
+.login-button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  /* NEW: Add a "pop" shadow */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--primary-color); /* Now dark blue */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ================================== */
+/* STYLES FOR LOGIN PAGE ADD-ONS      */
+/* ================================== */
+
+/* Form Options (Remember Me / Forgot) */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -0.5rem; /* Pulls it closer to the password field */
+  margin-bottom: 1rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remember-me label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.remember-me input[type="checkbox"] {
+  width: auto;
+}
+
+.forgot-password {
+  margin-top: 0; /* Reset margin from before */
+  font-size: 0.9rem;
+}
+
+.forgot-password a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Divider "OR" */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--border-color);
+  margin: 2rem 0; /* Space above and below */
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.divider span {
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Social Login */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.social-btn.google-btn {
+  color: var(--primary-color);
+}
+
+.social-btn.google-btn:hover {
+  background-color: var(--light-grey);
+  border-color: var(--secondary-color);
+}
+
+/* Sign Up Link */
+.signup-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* ================================== */
+/* RESPONSIVE UPDATES                 */
+/* ================================== */
+@media (max-width: 600px) {
+  .main-header {
+    padding: 1rem;
+    justify-content: center; /* Center logo on smaller screens */
+  }
+
+  .main-header .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-box {
+    padding: 2rem;
+    margin: 1rem;
+    border: none; /* Remove border on mobile, looks cleaner */
+    box-shadow: none; /* Remove shadow on mobile */
+  }
+
+  .login-box h2 {
+    font-size: 1.8rem;
+  }
+
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* ================================== */
+/* HEADER NAVIGATION STYLES           */
+/* ================================== */
+
+/* This targets the <nav> container we added */
+.main-nav {
+  /* This magic property pushes the nav block all the way to the right */
+  margin-left: auto;
+
+  display: flex;
+  gap: 1rem; /* Adds spacing between the links */
+}
+
+/* This styles the <a> links inside the nav */
+.main-nav a {
+  color: white; /* Link text color */
+  text-decoration: none; /* Removes the underline */
+  font-weight: 700; /* Makes the text bold */
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* This styles the links when you hover over them */
+.main-nav a:hover {
+  background-color: var(--secondary-color); /* Uses our existing bright blue */
+}
+
+/*
+  ==================================
+  NEW: LOGIN PAGE ANIMATIONS
+  ==================================
+*/
+
+/* 1. Define the fade-up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Style for the elements we want to animate */
+.login-box .animated {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* 3. Stagger the animation delay for each element */
+.login-box h2.animated {
+  animation-delay: 0.1s;
+}
+.login-box .input-group.animated:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+.login-box .input-group.animated:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+.login-box .form-options.animated {
+  animation-delay: 0.4s;
+}
+.login-box .login-button.animated {
+  animation-delay: 0.5s;
+}
+.login-box .divider.animated {
+  animation-delay: 0.6s;
+}
+.login-box .social-login.animated {
+  animation-delay: 0.7s;
+}
+.login-box .signup-link.animated {
+  animation-delay: 0.8s;
+}

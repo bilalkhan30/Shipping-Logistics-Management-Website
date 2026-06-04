@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Shipments - LogisticsPro</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/customer.css" />
+    <link rel="stylesheet" href="../css/shipments.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Company Logo" />
+        <h1>Azimar Shipping & Logistics</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="#" id="logout-button">Logout</a>
+      </nav>
+    </header>
+
+    <div class="dashboard-layout">
+      <main class="dashboard-main-content">
+        <h2 id="welcome-heading">My Shipments</h2>
+
+        <div class="dashboard-content">
+          <h3 class="content-title">All Your Shipments</h3>
+
+          <table class="activity-table">
+            <thead>
+              <tr>
+                <th>Tracking #</th>
+                <th>Destination</th>
+                <th>Supplier/Origin</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="shipments-table-body">
+              <tr>
+                <td colspan="4">Loading shipments...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <footer class="main-footer">
+      <p>&copy; 2023 Azimar Shipping & Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/my-shipments.js"></script>
+  </body>
+</html>

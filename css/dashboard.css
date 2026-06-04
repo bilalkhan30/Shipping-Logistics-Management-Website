@@ -1,0 +1,384 @@
+/*
+  This file styles the *internal* dashboard pages.
+  Replacing your old file with this ensures all styles are present.
+*/
+
+/* ================================== */
+/* HEADER NAV (Logout Button)         */
+/* ================================== */
+.main-nav {
+  margin-left: auto; /* Pushes the nav to the far right */
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: var(--secondary-color);
+}
+
+/* ================================== */
+/* CRITICAL: DASHBOARD LAYOUT (CSS GRID)   */
+/* This is what stops the overlapping! */
+/* ================================== */
+.dashboard-layout {
+  display: grid;
+  /* Start with the sidebar "closed" */
+  grid-template-columns: 0px 1fr;
+  flex-grow: 1;
+  /* Animate the column change */
+  transition: grid-template-columns 0.4s ease-in-out; /* Defines a grid container */
+}
+
+/* ================================== */
+/* SIDEBAR STYLES                */
+/* ================================== */
+.sidebar {
+  /* CRITICAL: Hidden by default.
+      JavaScript shows this *only* for admins.
+    */
+  display: block;
+
+  background-color: var(--text-color); /* Dark blue background */
+  color: #f1f1f1; /* Light text color */
+  padding: 2rem 0; /* Padding top/bottom, 0 left/right */
+
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+
+  /* Calculates the sidebar height to be 100% of the viewport (100vh)
+      minus the height of the header (66px) and footer (46px).
+      Adjust 112px (66+46) if your header/footer heights are different.
+    */
+  min-height: calc(100vh - 112px);
+}
+
+.sidebar-nav h3 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--secondary-color); /* Bright blue for heading */
+  padding: 0 1.5rem; /* Match link padding */
+  margin-bottom: 1rem;
+}
+
+.sidebar-nav ul {
+  list-style: none; /* Removes bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin: 0.25rem 0; /* Small space between links */
+}
+
+.sidebar-nav a {
+  display: block; /* Makes the whole link area clickable */
+  color: #f1f1f1;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem; /* Padding for a nice button-like feel */
+  transition: all 0.3s ease; /* Smooth hover effect */
+  border-left: 4px solid transparent; /* Placeholder for active-link-border */
+}
+
+.sidebar-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--secondary-color);
+}
+
+.sidebar-nav li.active a {
+  background-color: var(--primary-color);
+  border-left-color: var(--secondary-color);
+  font-weight: 700;
+}
+
+/* ================================== */
+/* MAIN CONTENT STYLES (Right Column) */
+/* ================================== */
+.dashboard-main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: var(--light-grey); /* Light grey bg for content area */
+}
+
+#welcome-heading {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+/* This is the white box *inside* the main content area */
+.dashboard-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+/* ================================== */
+/* ADMIN CONTENT: STAT CARDS          */
+/* ================================== */
+.content-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stat-card-container {
+  display: flex; /* Arranges children (the cards) in a row */
+  flex-wrap: wrap; /* Allows cards to wrap to the next line on small screens */
+  gap: 1.5rem; /* Creates space *between* the cards */
+  margin-bottom: 2.5rem; /* Space below the container */
+}
+
+.stat-card {
+  flex: 1; /* Makes each card grow to fill an equal amount of space */
+  min-width: 220px; /* Prevents cards from getting too small */
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center; /* Vertically centers the icon and text */
+  gap: 1.5rem; /* Space between the icon and the text */
+  border-left: 5px solid var(--primary-color);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.card-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #777;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-info p {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1;
+}
+
+.stat-card.card-blue {
+  border-left-color: var(--primary-color);
+}
+.stat-card.card-orange {
+  border-left-color: #fd7e14;
+}
+.stat-card.card-green {
+  border-left-color: #28a745;
+}
+.stat-card.card-red {
+  border-left-color: #dc3545;
+}
+
+/* ================================== */
+/* ADMIN CONTENT: ACTIVITY TABLE      */
+/* ================================== */
+.activity-table {
+  width: 100%; /* Make the table fill its container */
+  border-collapse: collapse; /* Merges cell borders for a cleaner look */
+  margin-top: 1rem; /* Space above the table */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensures the border-radius clips the content */
+}
+
+.activity-table thead {
+  background-color: var(--light-grey); /* Light grey background */
+}
+
+.activity-table th,
+.activity-table td {
+  padding: 1rem; /* Add comfortable padding */
+  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid var(--border-color); /* Horizontal lines */
+}
+
+.activity-table th {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.activity-table tbody td {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.activity-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.activity-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* ================================== */
+/* TABLE ACTION BUTTONS               */
+/* ================================== */
+.activity-table button {
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  margin-right: 0.5rem; /* Space between buttons */
+}
+
+.btn-approve {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+.btn-approve:hover {
+  background-color: #218838; /* Darker green */
+  transform: translateY(-1px);
+}
+
+.btn-deny {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+.btn-deny:hover {
+  background-color: #c82333; /* Darker red */
+  transform: translateY(-1px);
+}
+
+/*
+  ==================================
+  RE-USED BUTTON STYLES
+  ==================================
+*/
+.btn-create-new {
+  display: inline-block; /* Good for <a> tags */
+  text-decoration: none; /* Removes the underline */
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-create-new:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* NEW: Add a "press" effect when clicked */
+.btn-create-new:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*
+  ==================================
+  CUSTOMER DASHBOARD STYLES
+  ==================================
+*/
+.quick-actions-container {
+  display: flex;
+  flex-wrap: wrap; /* Lets buttons stack on small screens */
+  gap: 10px; /* Sets the spacing between the buttons */
+}
+
+/*
+  ==================================
+  NEW: NON-ADMIN LAYOUT OVERRIDE
+  ==================================
+*/
+/* This is the rule the JavaScript is looking for.
+  It tells the page to switch to a 1-column
+  layout *only* when this class is added.
+*/
+.dashboard-layout.full-width-layout {
+  grid-template-columns: 1fr;
+}
+
+/*
+  ==================================
+  NEW: CONTENT FADE-IN ANIMATION
+  ==================================
+*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to stat cards */
+.stat-card {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Apply to tables (on all pages) */
+.activity-table {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.5s ease-out forwards;
+  animation-delay: 0.3s; /* Delay it slightly */
+}
+
+/* Stagger the animation for each card */
+.stat-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stat-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stat-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stat-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Stagger the content boxes on non-admin pages */
+.dashboard-content:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.dashboard-content:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/*
+  ==================================
+  NEW: ANIMATION HELPER CLASS
+  ==================================
+*/
+/* This class will be added by JS to skip the animation */
+.no-transition {
+  transition: none !important;
+}
