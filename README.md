@@ -1,27 +1,27 @@
 # Azimar Shipping & Logistics (LogisticsPro)
 
-A comprehensive, full-stack logistics and supply chain management platform designed to connect customers, suppliers, and transporters through a unified interface[cite: 3]. This system streamlines shipment tracking, job delegation, and user management using a secure, role-based architecture[cite: 3].
+A comprehensive, full-stack logistics and supply chain management platform/simulation designed to connect customers, suppliers, and transporters through a unified interface. This system streamlines shipment tracking, job delegation, and user management using a secure, role-based architecture.
 
 ## 🚀 Key Features
 
-*   **Role-Based Access Control (RBAC):** Distinct dashboards and permission levels for 4 user types: Admins, Customers, Suppliers, and Transporters[cite: 3].
-*   **Secure Authentication:** Custom registration and login system utilizing stateless JSON Web Tokens (JWT) and `bcryptjs` for secure password hashing[cite: 3].
-*   **Real-Time Shipment Tracking:** Customers can create shipments, which are then assigned to Suppliers and eventually picked up by Transporters[cite: 3].
-*   **Transporter Workflow:** Transporters have a dedicated interface to view available jobs, accept them, and update live statuses to "In Transit" or "Delivered" (with automated timestamping)[cite: 3].
-*   **Admin Dashboard & Reporting:** Admins can approve or deny pending user registrations, manage all active shipments, and generate date-based analytical reports on shipment statuses[cite: 3].
-*   **RESTful API:** A fully modular Express.js backend with protected routing via custom JWT middleware[cite: 3].
+*   **Role-Based Access Control (RBAC):** Distinct dashboards and permission levels for 4 user types: Admins, Customers, Suppliers, and Transporters.
+*   **Secure Authentication:** Custom registration and login system utilizing stateless JSON Web Tokens (JWT) and `bcryptjs` for secure password hashing.
+*   **Real-Time Shipment Tracking:** Customers can create shipments, which are then assigned to Suppliers and eventually picked up by Transporters.
+*   **Transporter Workflow:** Transporters have a dedicated interface to view available jobs, accept them, and update live statuses to "In Transit" or "Delivered" (with automated timestamping).
+*   **Admin Dashboard & Reporting:** Admins can approve or deny pending user registrations, manage all active shipments, and generate date-based analytical reports on shipment statuses.
+*   **RESTful API:** A fully modular Express.js backend with protected routing via custom JWT middleware.
 
 ## 🛠️ Tech Stack
 
 **Frontend:**
-*   HTML5, CSS3, Vanilla JavaScript (ES6)[cite: 3]
-*   Custom CSS Grid/Flexbox layouts with role-specific dashboards[cite: 3]
+*   HTML5, CSS3, Vanilla JavaScript (ES6)
+*   Custom CSS Grid/Flexbox layouts with role-specific dashboards
 
 **Backend:**
-*   **Runtime:** Node.js[cite: 3]
-*   **Framework:** Express.js (`cors`, `express.json`)[cite: 3]
-*   **Database:** PostgreSQL (using the `pg` package for connection pooling)[cite: 3]
-*   **Security:** `jsonwebtoken`, `bcryptjs`[cite: 3]
+*   **Runtime:** Node.js
+*   **Framework:** Express.js (`cors`, `express.json`)
+*   **Database:** PostgreSQL (using the `pg` package for connection pooling)
+*   **Security:** `jsonwebtoken`, `bcryptjs`
 
 ---
 
@@ -36,14 +36,14 @@ Follow these steps to configure, run, and test the platform on your local machin
 ### 2. Clone the Repository & Install Dependencies
 Navigate to your preferred directory and install the required Node modules:
 ```bash
-git clone [https://github.com/YOUR_USERNAME/shipping-logistics-backend.git](https://github.com/YOUR_USERNAME/shipping-logistics-backend.git)
+git clone [https://github.com/bilalkhan30/shipping-logistics-backend.git](https://github.com/bilalkhan30/shipping-logistics-backend.git)
 cd shipping-logistics-backend
 npm install
 ```
-*(This will install `express`, `pg`, `bcryptjs`, `jsonwebtoken`, `cors`, and `dotenv`)[cite: 3].*
+*(This will install `express`, `pg`, `bcryptjs`, `jsonwebtoken`, `cors`, and `dotenv`).*
 
 ### 3. Database Configuration
-You must create a PostgreSQL database named `logistics_db` and establish the required tables[cite: 3]. 
+You must create a PostgreSQL database named `logistics_db` and establish the required tables. 
 
 Open your PostgreSQL terminal (psql) or pgAdmin and execute the following SQL schema based on the backend queries:
 
@@ -87,7 +87,7 @@ CREATE TABLE shipments (
 ```
 
 ### 4. Environment Variables
-Create a `.env` file in the root of your project directory and add your PostgreSQL connection string and a secret key for JWT[cite: 3].
+Create a `.env` file in the root of your project directory and add your PostgreSQL connection string and a secret key for JWT.
 
 ```env
 # Format: postgresql://USER:PASSWORD@HOST:PORT/DATABASE
@@ -95,18 +95,18 @@ DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/logistics_db"
 JWT_SECRET="YOUR_SUPER_SECRET_KEY_GOES_HERE"
 PORT=5000
 ```
-*Note: Update `YOUR_PASSWORD` to match your local PostgreSQL setup[cite: 3].*
+*Note: Update `YOUR_PASSWORD` to match your local PostgreSQL setup.*
 
 ### 5. Running the Application
-The project includes `nodemon` for active development[cite: 3]. Start the Express server:
+The project includes `nodemon` for active development. Start the Express server:
 
 ```bash
 npx nodemon index.js
 ```
-You should see: `Server is running on port 5000`[cite: 3].
+You should see: `Server is running on port 5000`.
 
 ### 6. Launching the Frontend
-Since the frontend uses vanilla HTML/JS, it is entirely decoupled from the backend rendering[cite: 3]. 
+Since the frontend uses vanilla HTML/JS, it is entirely decoupled from the backend rendering. 
 *   Simply open `index.html` in your web browser. 
 *   Alternatively, use the VS Code "Live Server" extension to serve the frontend on `http://127.0.0.1:5500`.
 
@@ -114,18 +114,18 @@ Since the frontend uses vanilla HTML/JS, it is entirely decoupled from the backe
 
 ## 👥 Usage Guide & Role Testing
 
-Because new users default to a `pending` status, you must manually create your first Admin user to access the dashboard and approve others[cite: 3].
+Because new users default to a `pending` status, you must manually create your first Admin user to access the dashboard and approve others.
 
 1.  **Create an Admin:**
-    *   Go to the `signup.html` page and create a new account[cite: 3].
+    *   Go to the `signup.html` page and create a new account.
     *   Open your PostgreSQL database and manually set your user role to admin and status to active:
         `UPDATE users SET user_role = 'admin', status = 'active' WHERE email = 'your_email@example.com';`
 2.  **Approve New Users:**
-    *   Log in via `login.html` with your Admin account[cite: 3].
-    *   Navigate to **Manage Users** in the dashboard sidebar to approve pending Customers, Suppliers, and Transporters so they can access the platform[cite: 3].
+    *   Log in via `login.html` with your Admin account.
+    *   Navigate to **Manage Users** in the dashboard sidebar to approve pending Customers, Suppliers, and Transporters so they can access the platform.
 3.  **Simulate the Supply Chain:**
-    *   Log in as a **Customer** to create a new shipment[cite: 3].
-    *   Log in as a **Transporter** to view "Available Jobs", accept a shipment, and update its status to "In Transit" or "Delivered"[cite: 3].
+    *   Log in as a **Customer** to create a new shipment.
+    *   Log in as a **Transporter** to view "Available Jobs", accept a shipment, and update its status to "In Transit" or "Delivered".
 
 ## 👨‍💻 Author
-**Bilal Khan**[cite: 3]
+**Bilal Khan**
