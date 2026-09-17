@@ -68,12 +68,9 @@ CREATE TABLE shipments (
     id SERIAL PRIMARY KEY,
     tracking_id VARCHAR(50),
     requester_id INT REFERENCES users(id),
-    requester_name VARCHAR(255),
-    requester_phone VARCHAR(50),
-    requester_role VARCHAR(50),
+    supplier_id INT REFERENCES users(id), -- Links directly to the users table
     origin VARCHAR(255),
     destination VARCHAR(255),
-    supplier_name VARCHAR(255),
     item_description TEXT,
     shipment_type VARCHAR(50),
     quantity INT,
